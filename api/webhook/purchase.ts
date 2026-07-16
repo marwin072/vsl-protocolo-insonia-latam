@@ -1,9 +1,9 @@
-import { getSupabaseAdmin } from '../lib/supabaseAdmin.js';
-import { json, methodNotAllowed } from '../lib/http.js';
-import { getAdapter } from '../lib/platforms/index.js';
-import { sendGa4Event } from '../lib/tracking/ga4.js';
-import { sendMetaEvent } from '../lib/tracking/metaCapi.js';
-import { grantMemberAccess, revokeMemberAccess } from '../lib/memberAccess.js';
+import { getSupabaseAdmin } from '../_lib/supabaseAdmin.js';
+import { json, methodNotAllowed } from '../_lib/http.js';
+import { getAdapter } from '../_lib/platforms/index.js';
+import { sendGa4Event } from '../_lib/tracking/ga4.js';
+import { sendMetaEvent } from '../_lib/tracking/metaCapi.js';
+import { grantMemberAccess, revokeMemberAccess } from '../_lib/memberAccess.js';
 
 export default async function handler(request: Request): Promise<Response> {
   if (request.method !== 'POST') return methodNotAllowed(['POST']);

@@ -1,6 +1,6 @@
-import { json, methodNotAllowed, isValidEmail } from './lib/http.js';
-import { sendGa4Event } from './lib/tracking/ga4.js';
-import { sendMetaEvent } from './lib/tracking/metaCapi.js';
+import { json, methodNotAllowed, isValidEmail } from './_lib/http.js';
+import { sendGa4Event } from './_lib/tracking/ga4.js';
+import { sendMetaEvent } from './_lib/tracking/metaCapi.js';
 import { ALLOWED_TRACK_EVENTS, META_EVENT_NAME_MAP, type TrackEventName } from '../shared/trackingEvents.js';
 
 interface TrackPayload {

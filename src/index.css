@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-sans: "Manrope", sans-serif;
+
+  /* Theme agnostic variables */
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-text: var(--card-text);
+  --color-card-text-muted: var(--card-text-muted);
+  --color-card-bg-highlight: var(--card-bg-highlight);
+  --color-card-border-highlight: var(--card-border-highlight);
+  --color-card-text-highlight: var(--card-text-highlight);
+}
+
+@layer base {
+  :root {
+    /* Tema Escuro (Novo Padrão) */
+    --brand-primary: #02044F; /* Fundo Azul Escuro */
+    --brand-secondary: #FFF4D2; /* Texto Creme */
+    --brand-accent: #5C8AE6;
+
+    /* Tema Cósmico / Referência (Agora é o padrão) */
+    --cosmic-bg: #030712;         
+    --center-glow: rgba(245, 175, 75, 0.6); 
+    --text-main: #fcfaf2;
+    --text-sub: #94a3b8;
+    --animation-iteration: infinite;
+
+    /* Semantic Card Tokens (Dark) */
+    --card-bg: rgba(255, 244, 210, 0.05);
+    --card-border: rgba(255, 244, 210, 0.1);
+    --card-text: rgba(255, 244, 210, 0.8);
+    --card-text-muted: rgba(255, 244, 210, 0.6);
+    --card-bg-highlight: rgba(255, 244, 210, 0.1); 
+    --card-border-highlight: rgba(255, 244, 210, 0.3);
+    --card-text-highlight: #FFF4D2;
+  }
+
+  [data-theme="light"] {
+    /* Tema Claro (Secundário) */
+    --brand-primary: #FFF4D2; /* Fundo Creme */
+    --brand-secondary: #02044F; /* Texto Azul Escuro */
+    --brand-accent: #5C8AE6;
+
+    /* Tema Cósmico / Referência (Adaptado para Claro) */
+    --cosmic-bg: #fcfaf2;         
+    --center-glow: rgba(245, 201, 123, 0.3); 
+    --text-main: #0b1329;
+    --text-sub: #1e293b;
+
+    /* Semantic Card Tokens (Light) */
+    --card-bg: #FFFFFF;
+    --card-border: rgba(2, 4, 79, 0.1);
+    --card-text: rgba(2, 4, 79, 0.8);
+    --card-text-muted: rgba(2, 4, 79, 0.6);
+    --card-bg-highlight: #02044F; 
+    --card-border-highlight: rgba(2, 4, 79, 0.3);
+    --card-text-highlight: #FFF4D2;
+  }
+
+  /* Transição suave para todas as cores do site */
+  *, *::before, *::after {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
+    }
+  }
+
+  body {
+    background-color: var(--brand-primary);
+    color: var(--brand-secondary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--brand-secondary);
+    color: var(--brand-primary);
+  }
+}
+
+/* Remover scrolls horizontais indesejados nas animações GSAP */
+main {
+  overflow: hidden;
+}
+
+/* Utilitários Premium (Mask Reveal e Glow) */
+.mask-linear-reveal {
+  mask-image: linear-gradient(to bottom right, black 50%, transparent 50%);
+  mask-size: 250% 250%;
+  mask-position: 100% 100%;
+}
+
+/* Animação infinita do Parallax de Estrelas */
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* Animações de opacidade para textos */
+@keyframes animDont {
+  0%, 15% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  35%, 80% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  92%, 100% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
+/* Cintilação sutil para atmosfera cósmica */
+@keyframes cosmicTwinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+

@@ -153,14 +153,14 @@ export const Reboot = () => {
          </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-start relative z-10 pb-32 px-6">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start relative z-10 pb-16 md:pb-32 px-6">
         
         {/* Left Column: Text */}
-        <div ref={leftColRef} className="relative z-20 pt-[350px] md:pt-[450px]">
-          <div ref={textRef} className="flex flex-col items-start text-brand-secondary space-y-12">
+        <div ref={leftColRef} className="relative z-20 pt-[50px] md:pt-[450px] order-2 md:order-1">
+          <div ref={textRef} className="flex flex-col items-center md:items-start text-center md:text-left text-brand-secondary space-y-8 md:space-y-12">
             <div>
-              <h2 className="text-5xl md:text-7xl font-heading mb-8 leading-tight font-light drop-shadow-sm">
-                Reprogramando <br/>
+              <h2 className="text-4xl md:text-7xl font-heading mb-6 md:mb-8 leading-tight font-light drop-shadow-sm">
+                Reprogramando <br className="hidden md:block" />
                 El Sistema.
               </h2>
               <p className="text-base md:text-lg max-w-sm font-sans leading-relaxed opacity-80">
@@ -181,8 +181,8 @@ export const Reboot = () => {
         </div>
 
         {/* Right Column: Higgsfield Brain */}
-        <div ref={rightColRef} className="flex justify-center items-center relative w-full pt-[100px] md:pt-[250px]">
-          <div className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] flex flex-col items-center justify-center">
+        <div ref={rightColRef} className="flex justify-center items-center relative w-full pt-[120px] md:pt-[250px] order-1 md:order-2">
+          <div className="relative w-[280px] h-[280px] md:w-[500px] md:h-[500px] flex flex-col items-center justify-center">
 
             {/* Background Glow */}
             <div className="absolute inset-0 bg-brand-accent/20 rounded-full blur-[70px]"></div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { InstagramLogo, GraduationCap, Brain, Certificate, Envelope } from '@phosphor-icons/react';
+import { InstagramLogo, Brain, Certificate, Envelope } from '@phosphor-icons/react';
 
 export const Author = () => {
   return (

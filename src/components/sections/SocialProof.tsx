@@ -1,4 +1,3 @@
-import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const socialProofs = [

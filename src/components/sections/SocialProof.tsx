@@ -5,7 +5,7 @@ const socialProofs = [
   "/alexia_depocomp.png",
   "/depoimentovalentina-att.jpg",
   "/sofia_ramirezdepoimnentt.jpg",
-  "/depoimento_part.jpeg",
+  "/alexia_no_mark.jpg",
 ];
 
 export const SocialProof = () => {

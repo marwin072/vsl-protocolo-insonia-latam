@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star } from '@phosphor-icons/react';
 
 const socialProofs = [
   "/alexia_depocomp.png",

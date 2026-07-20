@@ -227,7 +227,7 @@ export const Hero = () => {
              onMouseLeave={handleMockupLeave}
              aria-label="Conoce el sistema Mente Apagada"
         >
-          <img src="/ebook-v2-nobg.png" 
+          <img src="/mockup_latam_nobg.png" 
                alt="Mockup Ebook Protocolo Mente Apagada" 
                className="w-full h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] group-hover:drop-shadow-[0_30px_50px_rgba(235,212,148,0.35)] transition-shadow duration-500" />
         </button>

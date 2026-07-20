@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './Button';
+import { Countdown } from './Countdown';
 
 export const MobileStickyCTA = () => {
   const { scrollY } = useScroll();
@@ -11,11 +12,14 @@ export const MobileStickyCTA = () => {
   return (
     <motion.div 
       style={{ opacity, y }}
-      className="fixed bottom-0 left-0 w-full z-50 p-4 bg-brand-primary/80 backdrop-blur-md border-t border-brand-secondary/10 md:hidden flex justify-center items-center pb-6"
+      className="fixed bottom-0 left-0 w-full z-50 px-4 pb-6 pt-0 bg-gradient-to-t from-brand-primary via-brand-primary/90 to-transparent md:hidden flex flex-col justify-center items-center pointer-events-none"
     >
-      <Button variant="cta" className="w-full h-14 text-base font-bold shadow-[0_0_20px_rgba(255,244,210,0.2)]">
-        Acessar Protocolo
-      </Button>
+      <div className="w-full max-w-sm mx-auto pointer-events-auto">
+        <Countdown isMobileSticky={true} />
+        <Button variant="cta" className="w-full h-14 text-base font-bold shadow-[0_0_25px_rgba(255,244,210,0.25)] border-t border-brand-secondary/20">
+          Acceder al Protocolo
+        </Button>
+      </div>
     </motion.div>
   );
 };

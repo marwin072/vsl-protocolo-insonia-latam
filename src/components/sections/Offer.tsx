@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check, ShieldCheck, ClockUser } from '@phosphor-icons/react';
 import { Button } from '../ui/Button';
+import { Countdown } from '../ui/Countdown';
 
 export const Offer = () => {
   return (
@@ -56,13 +57,8 @@ export const Offer = () => {
               <h3 className="text-2xl font-heading mb-2">Protocolo Completo</h3>
               <p className="text-card-text-muted font-sans text-sm mb-6 transition-colors duration-400">Acceso de por vida + Actualizaciones</p>
 
-              {/* Caixa de Urgência */}
-              <div className="bg-red-500/5 border border-red-500/20 rounded-xl py-2 px-4 mb-6 inline-block">
-                <p className="text-red-400/90 font-bold uppercase text-[11px] tracking-[0.15em] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                  El descuento expira hoy a las 23:59
-                </p>
-              </div>
+              {/* Caixa de Urgência Dinâmica */}
+              <Countdown className="mb-6 inline-flex" />
 
               <div className="flex justify-center items-end gap-1 mb-2">
                 <span className="text-card-text-muted text-xl font-sans line-through mb-2 mr-2 transition-colors duration-400">US$ 16.90</span>

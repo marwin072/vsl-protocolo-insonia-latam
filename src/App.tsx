@@ -8,6 +8,7 @@ import { Clock } from './components/sections/Clock';
 import { Balance } from './components/sections/Balance';
 import { BlueGlow } from './components/sections/BlueGlow';
 import { Orbit } from './components/sections/Orbit';
+import { Author } from './components/sections/Author';
 import { SocialProof } from './components/sections/SocialProof';
 import { Offer } from './components/sections/Offer';
 import { FAQ } from './components/sections/FAQ';
@@ -40,6 +41,7 @@ function App() {
           <Balance />
           <BlueGlow />
           <Orbit />
+          <Author />
           <SocialProof />
           <Offer />
           <FAQ />

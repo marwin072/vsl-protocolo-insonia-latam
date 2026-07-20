@@ -6,27 +6,13 @@ const socialProofs = [
   "/depoimentovalentina-att.jpg",
   "/sofia_ramirezdepoimnentt.jpg",
   "/alexia_no_mark.jpg",
+  "/carlosherrera_depoim.png"
 ];
 
+// Duplicamos o array para criar o loop contínuo infinito perfeitamente
+const loopProofs = [...socialProofs, ...socialProofs];
+
 export const SocialProof = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    const updateWidth = () => {
-      if (carouselRef.current) {
-        setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
-      }
-    };
-    
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    
-    // Pequeno delay para garantir que as imagens carregaram e o scrollWidth é real
-    setTimeout(updateWidth, 500);
-
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
 
   return (
     <section className="py-32 px-0 relative bg-brand-primary z-10 overflow-hidden">
@@ -46,43 +32,47 @@ export const SocialProof = () => {
         </motion.div>
       </div>
 
-      {/* Carrossel Drag - Framer Motion */}
-      <div className="max-w-[100vw] mx-auto pl-6 md:pl-0 md:max-w-6xl overflow-visible">
-        <motion.div ref={carouselRef} className="w-full cursor-grab active:cursor-grabbing overflow-hidden">
-          <motion.div 
-            drag="x" 
-            dragConstraints={{ right: 0, left: -width }}
-            dragElastic={0.1}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-            className="flex gap-6 md:gap-8 touch-pan-y w-max pb-16 pt-8 pr-6"
-          >
-            {socialProofs.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="shrink-0 w-[75vw] max-w-[320px] md:max-w-[400px] relative group"
-              >
-                {/* Glow Effect on Hover/Drag */}
-                <div className="absolute -inset-1 bg-gradient-to-tr from-brand-accent/30 to-transparent blur-xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
-                <img 
-                  src={img} 
-                  alt={`Testimonio ${index + 1}`} 
-                  className="w-full h-auto object-cover rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-brand-secondary/10 relative z-10 pointer-events-none" 
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+      {/* Carrossel Fluxo Contínuo - CSS Marquee */}
+      <div className="max-w-[100vw] mx-auto overflow-hidden">
+        
+        <style>{`
+          @keyframes infinite-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); } /* -50% shifts exactly half the duplicated content, 1rem accounts for half the gap */
+          }
+          .animate-infinite-scroll {
+            animation: infinite-scroll 40s linear infinite;
+            width: max-content;
+          }
+          .animate-infinite-scroll:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
+        <div className="animate-infinite-scroll flex gap-8 pb-16 pt-8 pr-8">
+          {loopProofs.map((img, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="shrink-0 w-[75vw] max-w-[320px] md:max-w-[400px] relative group cursor-pointer"
+            >
+              {/* Glow Effect on Hover */}
+              <div className="absolute -inset-1 bg-gradient-to-tr from-brand-accent/30 to-transparent blur-xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              
+              <img 
+                src={img} 
+                alt={`Testimonio ${index + 1}`} 
+                className="w-full h-auto object-cover rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-brand-secondary/10 relative z-10" 
+              />
+            </motion.div>
+          ))}
+        </div>
         
         {/* Indicadores Visuais de Interação */}
         <div className="flex justify-center items-center gap-3 mt-4 text-brand-secondary/40 text-sm tracking-widest uppercase font-bold">
           <span className="w-8 md:w-16 h-[1px] bg-brand-secondary/20"></span>
-          <span>Arrastra para explorar</span>
+          <span>Mantén presionado para leer</span>
           <span className="w-8 md:w-16 h-[1px] bg-brand-secondary/20"></span>
         </div>
       </div>

@@ -20,27 +20,13 @@ export const Offer = () => {
           </motion.h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-5/12 flex justify-center order-2 lg:order-1"
-          >
-            <img
-              src="/ebook-v2-nobg.png"
-              className="w-56 sm:w-64 lg:w-80 object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] hover:-translate-y-3 transition-transform duration-700 ease-out"
-              alt="Mockup Protocolo de 7 Noites"
-            />
-          </motion.div>
-
+        <div className="flex justify-center items-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-7/12 max-w-lg mx-auto bg-card-bg text-card-text border border-card-border rounded-[2rem] p-8 sm:p-10 md:p-14 shadow-xl relative overflow-hidden order-1 lg:order-2 transition-colors duration-400 group"
+            className="w-full max-w-lg mx-auto bg-card-bg text-card-text border border-card-border rounded-[2rem] p-8 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden transition-colors duration-400 group"
           >
             {/* Top accent line */}
             <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-accent z-20"></div>
@@ -54,8 +40,18 @@ export const Offer = () => {
             </div>
 
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-heading mb-2">Protocolo Completo</h3>
-              <p className="text-card-text-muted font-sans text-sm mb-6 transition-colors duration-400">Acceso de por vida + Actualizaciones</p>
+              <h3 className="text-3xl font-heading mb-2">Protocolo Completo</h3>
+              <p className="text-card-text-muted font-sans text-sm mb-8 transition-colors duration-400">Acceso de por vida + Actualizaciones</p>
+
+              {/* Imagem Mockup Tablet INSIDE THE CARD */}
+              <div className="flex justify-center mb-8 relative">
+                <div className="absolute inset-0 bg-brand-accent/20 blur-[50px] rounded-full scale-75"></div>
+                <img
+                  src="/mockup_latam_nobg.png"
+                  className="w-48 sm:w-56 object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.7)] hover:-translate-y-2 transition-transform duration-700 ease-out relative z-10"
+                  alt="Tablet Protocolo Mente Apagada"
+                />
+              </div>
 
               {/* Caixa de Urgência Dinâmica */}
               <Countdown className="mb-6 inline-flex" />
@@ -74,7 +70,9 @@ export const Offer = () => {
                 'Guía Paso a Paso del Protocolo',
                 'Audio Binaural de Desaceleración',
                 'Rastreador del Ciclo Circadiano',
-                'Módulo Extra: Volver a dormir'
+                'Módulo Extra: Volver a dormir',
+                'Técnica 4-7-8 de Respiración Guiada',
+                'Diario de Sueño Terapéutico'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-4">
                   <Check size={20} className="text-brand-accent shrink-0" weight="bold" />

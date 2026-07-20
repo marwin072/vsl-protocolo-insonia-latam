@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { InstagramLogo, GraduationCap, Brain, Certificate } from '@phosphor-icons/react';
+import { InstagramLogo, GraduationCap, Brain, Certificate, Envelope } from '@phosphor-icons/react';
 
 export const Author = () => {
   return (
@@ -74,7 +74,7 @@ export const Author = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 pt-6 border-t border-brand-secondary/10">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-6 pt-6 border-t border-brand-secondary/10">
               <a 
                 href="https://instagram.com/camillatorres.co" 
                 target="_blank" 
@@ -85,8 +85,21 @@ export const Author = () => {
                   <InstagramLogo size={24} weight="duotone" />
                 </div>
                 <div>
-                  <p className="text-xs text-brand-secondary/50 uppercase tracking-wider mb-1">Sígueme en Instagram</p>
+                  <p className="text-xs text-brand-secondary/50 uppercase tracking-wider mb-1">Instagram</p>
                   <p className="font-bold">@camillatorres.co</p>
+                </div>
+              </a>
+              
+              <a 
+                href="mailto:camillasleepcoach@gmail.com" 
+                className="flex items-center gap-3 text-brand-secondary hover:text-brand-accent transition-colors group"
+              >
+                <div className="bg-brand-secondary/5 p-3 rounded-xl group-hover:bg-brand-accent/10 transition-colors">
+                  <Envelope size={24} weight="duotone" />
+                </div>
+                <div>
+                  <p className="text-xs text-brand-secondary/50 uppercase tracking-wider mb-1">Contacto Directo</p>
+                  <p className="font-bold">camillasleepcoach@gmail.com</p>
                 </div>
               </a>
               
@@ -96,7 +109,7 @@ export const Author = () => {
                 </div>
                 <div>
                   <p className="text-xs text-brand-secondary/50 uppercase tracking-wider mb-1">Especialidad</p>
-                  <p className="font-bold">TCC-I & Neurociencia</p>
+                  <p className="font-bold text-sm">Neurociencia y TCC-I</p>
                 </div>
               </div>
             </div>

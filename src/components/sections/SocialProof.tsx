@@ -1,22 +1,11 @@
 import { motion } from 'framer-motion';
 import { Star } from '@phosphor-icons/react';
 
-const testimonials = [
-  {
-    name: 'Carolina M.',
-    age: 42,
-    text: 'No dormía una noche entera desde hace 3 años. Probaba tés, meditación y nada funcionaba. En la tercera noche del protocolo, dormí 7 horas seguidas. Me desperté llorando de alivio.',
-  },
-  {
-    name: 'Roberto F.',
-    age: 55,
-    text: 'Despertar a las 3 a.m. era mi rutina. La desesperación de mirar al techo hasta amanecer me destruía. El ejercicio de respiración parasimpática cambió mi vida.',
-  },
-  {
-    name: 'Mariana T.',
-    age: 38,
-    text: 'Logré dejar las pastillas (con seguimiento médico) usando las técnicas del protocolo. Que la mente se apague de forma natural es la mejor sensación del mundo.',
-  },
+const socialProofs = [
+  "/alexia_depocomp.png",
+  "/depoimentovalentina-att.jpg",
+  "/sofia_ramirezdepoimnentt.jpg",
+  "/depoimento_part.jpeg",
 ];
 
 export const SocialProof = () => {
@@ -39,34 +28,41 @@ export const SocialProof = () => {
           </motion.div>
         </div>
 
-        <div className="flex flex-col">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="py-10 border-t border-brand-secondary/10 flex flex-col md:flex-row gap-8 md:gap-16 items-start"
-            >
-              <div className="md:w-1/3 shrink-0">
-                <div className="flex gap-1 mb-4 text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} weight="fill" size={16} />
-                  ))}
-                </div>
-                <p className="text-brand-secondary font-medium font-sans text-lg">{testimonial.name}</p>
-                <p className="text-brand-secondary/50 text-sm font-sans">{testimonial.age} años</p>
-              </div>
-              
-              <div className="md:w-2/3">
-                <p className="text-brand-secondary/90 font-sans text-xl md:text-2xl leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-              </div>
-            </motion.div>
-          ))}
-          <div className="border-t border-brand-secondary/10"></div>
+        <div className="relative w-full max-w-5xl mx-auto -mx-6 px-6 md:mx-auto md:px-0">
+          <div className="flex overflow-x-auto gap-6 pb-12 snap-x snap-mandatory hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <style>{`
+              .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+            
+            {socialProofs.map((img, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="snap-center shrink-0 w-[85vw] max-w-[320px] md:max-w-[350px] relative group"
+              >
+                {/* Glow Effect on Hover */}
+                <div className="absolute -inset-1 bg-gradient-to-tr from-brand-accent/30 to-transparent blur-lg rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <img 
+                  src={img} 
+                  alt={`Testimonio ${index + 1}`} 
+                  className="w-full h-auto object-cover rounded-[2rem] shadow-[0_15px_30px_rgba(0,0,0,0.5)] border border-brand-secondary/10 relative z-10 hover:-translate-y-2 transition-transform duration-500" 
+                />
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Indicadores Visuais de Scroll */}
+          <div className="flex justify-center items-center gap-2 mt-4 text-brand-secondary/40 text-sm">
+            <span className="w-10 h-[1px] bg-brand-secondary/20"></span>
+            <span>Desliza para ver más</span>
+            <span className="w-10 h-[1px] bg-brand-secondary/20"></span>
+          </div>
         </div>
       </div>
     </section>

@@ -21,7 +21,7 @@ export const MobileStickyCTA = () => {
       <div className="w-full max-w-sm mx-auto pointer-events-auto">
         <Countdown isMobileSticky={true} />
         <Button variant="cta" className="w-full h-14 text-base font-bold shadow-[0_0_25px_rgba(255,244,210,0.25)] border-t border-brand-secondary/20" onClick={handleCheckoutClick}>
-          Acceder al Protocolo
+          Acceder al Protocolo <span className="ml-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">-60%</span>
         </Button>
       </div>
     </motion.div>

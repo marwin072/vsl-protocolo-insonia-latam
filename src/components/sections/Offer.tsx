@@ -40,7 +40,7 @@ export const Offer = () => {
 
             {/* Urgency Badge */}
             <div className="absolute top-5 right-5 bg-red-600/20 border border-red-500/50 text-red-500 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse backdrop-blur-sm shadow-[0_0_15px_rgba(220,38,38,0.4)] z-20">
-              Solo Hoy
+              60% OFF Solo Hoy
             </div>
 
             <div className="text-center mb-8">
@@ -64,7 +64,7 @@ export const Offer = () => {
                 <span className="text-card-text-muted text-xl font-sans line-through mb-2 mr-2 transition-colors duration-400">US$ 16.90</span>
                 <span className="text-brand-accent mb-2 font-bold text-lg">US$</span>
                 <span className="text-6xl font-heading font-bold text-brand-accent">6</span>
-                <span className="text-2xl font-bold text-brand-accent">.80</span>
+                <span className="text-2xl font-bold text-brand-accent">.76</span>
               </div>
               <p className="text-brand-accent/80 font-sans text-sm font-bold tracking-wide uppercase transition-colors duration-400 mt-2">Pago Único</p>
             </div>

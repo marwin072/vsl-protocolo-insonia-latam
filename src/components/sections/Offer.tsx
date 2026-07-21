@@ -4,6 +4,10 @@ import { Button } from '../ui/Button';
 import { Countdown } from '../ui/Countdown';
 
 export const Offer = () => {
+  const handleCheckoutClick = () => {
+    window.location.href = "https://pay.hotmart.com/M106824063R?off=tlobacid&checkoutMode=10&offDiscount=PLUSEDITIONHOY";
+  };
+
   return (
     <section id="offer" className="py-32 px-6 relative bg-brand-primary text-brand-secondary transition-colors duration-400 z-10">
 
@@ -82,7 +86,7 @@ export const Offer = () => {
             </ul>
 
             <div className="mb-8 hidden md:block">
-              <Button variant="cta" size="lg" className="w-full text-base font-bold h-14">
+              <Button variant="cta" size="lg" className="w-full text-base font-bold h-14" onClick={handleCheckoutClick}>
                 Acceder al Protocolo
               </Button>
             </div>
